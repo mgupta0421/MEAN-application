@@ -3,9 +3,19 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mern-application": {
+    "mean-singlepage": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/mern-application",
+            "outputPath": "dist/mean-singlepage",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -59,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "mern-application:build:production"
+              "buildTarget": "mean-singlepage:build:production"
             },
             "development": {
-              "buildTarget": "mern-application:build:development"
+              "buildTarget": "mean-singlepage:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -92,8 +102,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "84e1c013-30c7-4241-bd1d-8863e0f24da5"
   }
 }
