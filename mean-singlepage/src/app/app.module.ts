@@ -39,7 +39,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatExpansionModule
   ],
   providers: [
-    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
