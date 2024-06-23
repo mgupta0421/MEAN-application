@@ -21,7 +21,7 @@ app.use('/api/posts', (req,res,next) => {
             content:'content2'
         }
        ]
-    res.status(400).json({
+    res.status(200).json({
         message: 'Data received',
         posts: posts
     });
