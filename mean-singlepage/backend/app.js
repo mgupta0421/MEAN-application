@@ -1,8 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const Post = require('./models/post.js');
+const mongoose = require('mongoose');
 
 const app = express();
+
+mongoose.connect("mongodb+srv://mitaligupta726:mu95x0QRM4u0uNjk@cluster0.vlwuaqq.mongodb.net/node-anguler?retryWrites=true&w=majority&appName=Cluster0")
+    .then(() => {
+        console.log("Connected to database");
+    })
+    .catch(() => {
+        console.log("Connection not working");
+    });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
@@ -15,22 +24,13 @@ app.use((req, res, next) => {
 
 
 app.get('/api/posts', (req,res,next) => {
-    const posts = [
-        {
-            id:'1',
-            title:'title1', 
-            content:'content2'
-        },
-        {
-            id:'2',
-            title:'title2', 
-            content:'content2'
-        }
-       ]
-    res.status(200).json({
-        message: 'Data received',
-        posts: posts
-    });
+    Post.find()
+    .then(documents => {
+        res.status(200).json({
+            message: 'Data received',
+            posts: documents
+        });    
+    });  
 });
 
 app.post('/api/posts',(req,res,next) => {
@@ -38,6 +38,7 @@ app.post('/api/posts',(req,res,next) => {
         title: req.body.title,
         content: req.body.content
     });
+    post.save();
     console.log(post);
     res.status(201).json({
         message: 'Post added successfully'
