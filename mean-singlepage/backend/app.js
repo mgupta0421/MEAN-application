@@ -54,7 +54,6 @@ app.put('api/posts/:id', (req,res,next) => {
         content: req.body.content
     });
     Post.updateOne({_id: req.params.id }, post).then(result =>{
-        console.log(result);
         res.status(200).json({message: 'Updated SUCCESSFULLY'});
     })
 })
@@ -68,6 +67,16 @@ app.delete('/api/posts/:id', (req,res,next) => {
         });
     })
     
+app.get('api/post/:id', (req,res,next) => {
+    Post.findById(req.params.id)
+    .then(post => {
+        if(post){
+            res.status(200).json(post);
+        }else{
+            res.status(400).json({ message: 'Post not found'});
+        }
+    })
+})
     
 });
 
