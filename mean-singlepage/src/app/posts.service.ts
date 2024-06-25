@@ -3,6 +3,7 @@ import { Post } from "./post.model";
 import { Subject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
+import { response } from "express";
 
 @Injectable({
     providedIn: 'root'
@@ -34,6 +35,11 @@ export class PostsService{
         return this.postsUpdated.asObservable();
     }
 
+    getPost(id: string): Post | undefined{
+       // return {...this.posts.find(p => p.id === id)};
+        return this.posts.find(p => p.id === id);
+    }
+
     addPost(id: string, title: string, content: string){
         const post: Post = {id: id, title:title, content: content};
         this.http.post<{ message: string, postId: string }>('http://localhost:3000/api/posts', post)
@@ -45,10 +51,17 @@ export class PostsService{
         })
     }
 
+    updatePost(id: string, title: string, content: string){
+        const post: Post ={ id: id, title: title, content: content};
+        this.http.put('http://localhost:3000/api/posts/' +id, post)
+        .subscribe((response) => {
+            console.log(response);
+        })
+    }
     deletePost(postId: string){
         this.http.delete('http://localhost:3000/api/posts/' +postId)
         .subscribe(() => {
-            const updatedPosts = this.posts.filter(post => post.id !==postId);
+            const updatedPosts = this.posts.filter(post => post.id !== postId);
             this.posts = updatedPosts;
             this.postsUpdated.next([...this.posts]);
         });

@@ -9,7 +9,7 @@ import { PostCreateComponent } from './post-create.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule} from '@angular/material/input';
-import { MatCard } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -17,6 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './post-list.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -33,11 +34,12 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatCard,
+    MatCardModule,
     MatToolbarModule,
     MatButtonModule,
     MatExpansionModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [
   ],
