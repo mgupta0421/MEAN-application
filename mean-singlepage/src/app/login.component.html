@@ -1,0 +1,19 @@
+<mat-card>
+    <form>
+        <mat-form-field>
+            <input matInput type="email" name="email" placeholder="Enter Email">
+            <mat-error *ngIf="">Enter the email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="password" matInput placeholder="Post Content">
+            <mat-error *ngIf="">Enter the password</mat-error>
+        </mat-form-field>
+
+        <button 
+        mat-raised-button
+        color="accent"
+        type= "submit"> Login</button>
+    </form>    
+</mat-card>
+
