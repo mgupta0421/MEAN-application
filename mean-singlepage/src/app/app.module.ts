@@ -18,7 +18,6 @@ import { PostListComponent } from './post-list.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { LoginComponent } from './login.component';
 
 
 
@@ -27,9 +26,8 @@ import { LoginComponent } from './login.component';
     AppComponent,
     PostCreateComponent,
     HeaderComponent,
-    PostListComponent,
-    LoginComponent
-  ],
+    PostListComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
