@@ -1,5 +1,4 @@
 # MEAN Stack (Single Page) Application
-
 **Overview** <br />
 This project is a full-stack MEAN (MongoDB, Express.js, Angular, Node.js) application. It demonstrates how to build a modern web application with a powerful and scalable stack. The application features a responsive Angular frontend, a robust Express.js backend, and uses MongoDB for data storage.
 
